@@ -1,0 +1,96 @@
+﻿<div class="panel panel-primary">
+    <div class="panel-heading">{{pageHeader}}</div>
+    <div class="panel-body">
+        <form (ngSubmit)="onSave()" #companyForm="ngForm">
+            <div class="form-horizontal">
+                <div class="form-group">
+                    <label for="CompanyName" class="control-label col-md-2">Company Name</label>
+                    <div class="col-md-10">
+                        <input type="text" class="form-control" id="CompanyName"
+                               required
+                               [(ngModel)]="model.CompanyName" name="CompanyName" #CompanyName="ngModel">
+                        <div [hidden]="CompanyName.valid || CompanyName.pristine"
+                             class="alert alert-danger">
+                            Company Name is required
+                        </div>
+                        <!--<br>TODO: remove this: {{spy.className}}-->
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="Address1" class="control-label col-md-2">Address1</label>
+                    <div class="col-md-10">
+                        <input type="text" class="form-control" id="Address1"
+                               required
+                               [(ngModel)]="model.Address1" name="Address1" #Address1="ngModel">
+                        <div [hidden]="Address1.valid || Address1.pristine"
+                             class="alert alert-danger">
+                            Address1 is required
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Address2" class="control-label col-md-2">Address2</label>
+                    <div class="col-md-10">
+                        <input type="text" class="form-control" id="Address2"
+                               [(ngModel)]="model.Address2" name="Address2">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="City" class="control-label col-md-2">City</label>
+                    <div class="col-md-10">
+                        <input type="text" class="form-control" id="City"
+                               [(ngModel)]="model.City" name="City">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="PostalCode" class="control-label col-md-2">Postal Code</label>
+                    <div class="col-md-10">
+                        <input type="text" class="form-control" id="PostalCode"
+                               [(ngModel)]="model.PostalCode" name="PostalCode">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="ContactName" class="control-label col-md-2">ContactName</label>
+                    <div class="col-md-10">
+                        <input type="text" class="form-control" id="ContactName"
+                               [(ngModel)]="model.ContactName" name="ContactName">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="ContactPhone" class="control-label col-md-2">Contact Phone</label>
+                    <div class="col-md-10">
+                        <input type="text" class="form-control" id="ContactPhone"
+                               [(ngModel)]="model.ContactPhone" name="ContactPhone">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="ContactEmail" class="control-label col-md-2">Contact mail</label>
+                    <div class="col-md-10">
+                        <input type="email" class="form-control" id="ContactEmail"
+                               required
+                               [(ngModel)]="model.ContactEmail" name="ContactEmail"
+                               placeholder="Contact Person Email"
+                               ng-pattern="/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/"
+                               #ContactEmail="ngModel">
+                        <!--<div [hidden]="ContactEmail.valid"
+                             class="alert alert-danger">
+                            Conact Email is required
+                        </div>
+                        <div [hidden]="ContactEmail.errors || ContactEmail.errors.pattern"
+                             class="alert alert-danger">
+                            Contact Email is invalid
+                        </div>-->
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <button type="submit" class="btn btn-success" [disabled]="!companyForm.form.valid">Submit</button>
+                        <button type="button" class="btn btn-default" (click)="onCancel()" >Cancel</button>
+                        <button type="button" class="btn btn-default" (click)="companyForm.reset()">Reset</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
